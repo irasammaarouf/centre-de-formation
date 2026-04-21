@@ -46,4 +46,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function tenant(){
+    return $this->belongsTo(tenant::class);//Un user appartient à un seul tenant
+  } 
+  public function student(){
+    return $this->hasOne(Student::class);//Un utilisateur peut être un étudiant
+  }
 }
